@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, GraduationCap, HeartHandshake, TrendingUp } from "lucide-react";
+import SlideLeft from "@/src/components/Common/Animaation/SlideLeft";
+import SlideRight from "@/src/components/Common/Animaation/SlideRight";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
 
 const PERKS = [
   { icon: TrendingUp, title: "Real Growth", desc: "Clear paths from apprentice to project lead." },
@@ -12,7 +15,7 @@ const CareersTeaser = () => {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="container grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-        <div className="relative h-72 w-full overflow-hidden rounded-2xl sm:h-96">
+        <SlideLeft className="relative h-72 w-full overflow-hidden rounded-2xl sm:h-96">
           <Image
             src="https://images.unsplash.com/photo-1541976590-713941681591?auto=format&fit=crop&w=1200&q=80"
             alt="Construction crew collaborating on site"
@@ -20,9 +23,9 @@ const CareersTeaser = () => {
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
-        </div>
+        </SlideLeft>
 
-        <div>
+        <SlideRight>
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
             Careers
           </span>
@@ -35,14 +38,14 @@ const CareersTeaser = () => {
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {PERKS.map(({ icon: Icon, title, desc }) => (
-              <div key={title}>
+            {PERKS.map(({ icon: Icon, title, desc }, index) => (
+              <SlideUp key={title} delay={index + 1}>
                 <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-900 text-gold-400">
                   <Icon size={18} />
                 </span>
                 <p className="mt-3 font-bold text-brand-900">{title}</p>
                 <p className="mt-1 text-sm text-brand-900/60">{desc}</p>
-              </div>
+              </SlideUp>
             ))}
           </div>
 
@@ -53,7 +56,7 @@ const CareersTeaser = () => {
             View Open Roles
             <ArrowRight size={16} />
           </Link>
-        </div>
+        </SlideRight>
       </div>
     </section>
   );

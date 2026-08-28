@@ -1,4 +1,6 @@
 import { BadgeCheck, FileCheck2, ShieldCheck, Users2 } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 const CERTIFICATIONS = [
   { icon: BadgeCheck, title: "Licensed General Contractor", org: "State Contractors Board" },
@@ -11,7 +13,7 @@ const Certifications = () => {
   return (
     <section className="bg-brand-50/40 py-16 md:py-24">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <SlideUp className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
             Credentials
           </span>
@@ -22,11 +24,11 @@ const Certifications = () => {
             Every claim we make about quality and safety is backed by a real
             license, certification, or membership — not just a slogan.
           </p>
-        </div>
+        </SlideUp>
 
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {CERTIFICATIONS.map(({ icon: Icon, title, org }) => (
-            <div
+            <ZoomIn
               key={title}
               className="flex flex-col items-center gap-3 rounded-2xl border border-brand-900/10 bg-white p-6 text-center"
             >
@@ -35,7 +37,7 @@ const Certifications = () => {
               </span>
               <p className="font-bold text-brand-900 leading-snug">{title}</p>
               <p className="text-xs text-brand-900/50">{org}</p>
-            </div>
+            </ZoomIn>
           ))}
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CheckCircle2, Send } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
 
 const PROJECT_TYPES = [
   "Residential",
@@ -22,7 +23,7 @@ const ContactForm = () => {
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center gap-3 rounded-2xl border border-brand-900/10 bg-brand-50/50 px-6 py-16 text-center">
+      <SlideUp className="flex flex-col items-center gap-3 rounded-2xl border border-brand-900/10 bg-brand-50/50 px-6 py-16 text-center">
         <CheckCircle2 size={32} className="text-gold-600" />
         <h3 className="text-lg font-bold text-brand-900">
           Thanks — we&apos;ve got your message.
@@ -30,15 +31,16 @@ const ContactForm = () => {
         <p className="max-w-sm text-sm text-brand-900/60">
           A member of our team will reply within one business day.
         </p>
-      </div>
+      </SlideUp>
     );
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="grid gap-5 rounded-2xl border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8"
-    >
+    <SlideUp>
+      <form
+        onSubmit={handleSubmit}
+        className="grid gap-5 rounded-2xl border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8"
+      >
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block">
           <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-brand-900/60">
@@ -106,7 +108,8 @@ const ContactForm = () => {
         Send Message
         <Send size={15} />
       </button>
-    </form>
+      </form>
+    </SlideUp>
   );
 };
 

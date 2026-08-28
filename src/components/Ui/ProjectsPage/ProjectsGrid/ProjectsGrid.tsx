@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 const CATEGORIES = ["All", "Residential", "Commercial", "Industrial"] as const;
 
@@ -71,14 +73,14 @@ const ProjectsGrid = () => {
   return (
     <section className="bg-brand-50/40 py-16 md:py-24">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <SlideUp className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
             Our Work
           </span>
           <h2 className="mt-3 text-3xl font-bold text-brand-900 md:text-4xl">
             Browse The Full Gallery
           </h2>
-        </div>
+        </SlideUp>
 
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           {CATEGORIES.map((cat) => (
@@ -98,7 +100,7 @@ const ProjectsGrid = () => {
 
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((project) => (
-            <div
+            <ZoomIn
               key={project.title}
               className="group relative h-72 overflow-hidden rounded-2xl"
             >
@@ -116,7 +118,7 @@ const ProjectsGrid = () => {
                 </span>
                 <p className="mt-1 text-lg font-bold text-white">{project.title}</p>
               </div>
-            </div>
+            </ZoomIn>
           ))}
         </div>
       </div>

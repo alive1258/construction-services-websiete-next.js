@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 const PROJECTS = [
   {
@@ -27,7 +29,7 @@ const ProjectsShowcase = () => {
   return (
     <section className="bg-brand-50/40 py-16 md:py-24">
       <div className="container">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <SlideUp className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
               Our Work
@@ -43,11 +45,11 @@ const ProjectsShowcase = () => {
             View Full Portfolio
             <ArrowRight size={16} />
           </Link>
-        </div>
+        </SlideUp>
 
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((project) => (
-            <div
+            <ZoomIn
               key={project.title}
               className="group relative h-64 overflow-hidden rounded-2xl"
             >
@@ -65,7 +67,7 @@ const ProjectsShowcase = () => {
                 </span>
                 <p className="mt-1 text-lg font-bold text-white">{project.title}</p>
               </div>
-            </div>
+            </ZoomIn>
           ))}
         </div>
       </div>

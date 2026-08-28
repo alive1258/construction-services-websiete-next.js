@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarDays } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 const POSTS = [
   {
@@ -27,7 +29,7 @@ const BlogInsights = () => {
   return (
     <section className="bg-brand-50/40 py-16 md:py-24">
       <div className="container">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <SlideUp className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
               Latest News
@@ -43,11 +45,11 @@ const BlogInsights = () => {
             View All News
             <ArrowRight size={16} />
           </Link>
-        </div>
+        </SlideUp>
 
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {POSTS.map((post) => (
-            <article
+            <ZoomIn
               key={post.title}
               className="group overflow-hidden rounded-2xl border border-brand-900/10 bg-white transition hover:shadow-xl"
             >
@@ -76,7 +78,7 @@ const BlogInsights = () => {
                   <ArrowRight size={14} />
                 </Link>
               </div>
-            </article>
+            </ZoomIn>
           ))}
         </div>
       </div>

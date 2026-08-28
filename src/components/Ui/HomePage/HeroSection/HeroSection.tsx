@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, HardHat, ShieldCheck, Timer, Wrench } from "lucide-react";
+import PageFadeIn from "@/src/components/Common/Animaation/PageFadeIn";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
 
 const QUICK_FACTS = [
   { icon: ShieldCheck, label: "Quality Materials", sub: "We never compromise" },
@@ -25,7 +27,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-linear-to-t from-brand-900 via-brand-900/50 to-transparent" />
 
         <div className="container relative">
-          <div className="max-w-xl">
+          <PageFadeIn className="max-w-xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold-400 backdrop-blur-sm">
               Trusted, Reliable, Professional
             </span>
@@ -57,7 +59,7 @@ const HeroSection = () => {
                 View Projects
               </Link>
             </div>
-          </div>
+          </PageFadeIn>
         </div>
       </div>
 
@@ -65,8 +67,8 @@ const HeroSection = () => {
       <div className="relative z-10 bg-white shadow-lg">
         <div className="container">
           <div className="grid grid-cols-2 gap-6 py-6 md:grid-cols-4 md:gap-8 md:py-8 -mt-0 md:-mt-14">
-            {QUICK_FACTS.map(({ icon: Icon, label, sub }) => (
-              <div key={label} className="flex items-center gap-3">
+            {QUICK_FACTS.map(({ icon: Icon, label, sub }, index) => (
+              <SlideUp key={label} delay={index + 1} className="flex items-center gap-3">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-gold-600">
                   <Icon size={20} />
                 </span>
@@ -74,7 +76,7 @@ const HeroSection = () => {
                   <p className="truncate text-sm font-bold text-brand-900">{label}</p>
                   <p className="truncate text-xs text-brand-900/60">{sub}</p>
                 </div>
-              </div>
+              </SlideUp>
             ))}
           </div>
         </div>

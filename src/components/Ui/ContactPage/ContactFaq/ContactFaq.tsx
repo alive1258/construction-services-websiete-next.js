@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
 
 const FAQS = [
   {
@@ -32,21 +33,22 @@ const ContactFaq = () => {
   return (
     <section id="faq" className="scroll-mt-[100px] bg-brand-50/40 py-16 md:py-24">
       <div className="container max-w-3xl">
-        <div className="text-center">
+        <SlideUp className="text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
             FAQs
           </span>
           <h2 className="mt-3 text-3xl font-bold text-brand-900 md:text-4xl">
             Common Questions
           </h2>
-        </div>
+        </SlideUp>
 
         <div className="mt-10 space-y-3">
           {FAQS.map(({ q, a }, i) => {
             const isOpen = open === i;
             return (
-              <div
+              <SlideUp
                 key={q}
+                delay={i + 1}
                 className="overflow-hidden rounded-xl border border-brand-900/10 bg-white"
               >
                 <button
@@ -68,7 +70,7 @@ const ContactFaq = () => {
                     {a}
                   </p>
                 )}
-              </div>
+              </SlideUp>
             );
           })}
         </div>

@@ -1,4 +1,5 @@
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 const CONTACT_PHONE = "+1 (202) 555-0198";
 const CONTACT_EMAIL = "hello@constructa.com";
@@ -36,7 +37,7 @@ const ContactInfoCards = () => {
       <div className="container">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {INFO_ITEMS.map(({ icon: Icon, label, value, href }) => (
-            <div
+            <ZoomIn
               key={label}
               className="rounded-2xl border border-brand-900/10 bg-white p-6 text-center transition hover:-translate-y-1 hover:shadow-xl sm:text-left"
             >
@@ -56,7 +57,7 @@ const ContactInfoCards = () => {
               ) : (
                 <p className="mt-1 font-bold text-brand-900">{value}</p>
               )}
-            </div>
+            </ZoomIn>
           ))}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PageFadeIn from "@/src/components/Common/Animaation/PageFadeIn";
 
 interface PageHeroProps {
   eyebrow: string;
@@ -15,7 +16,7 @@ const PageHero = ({ eyebrow, title, subtitle, image, alt }: PageHeroProps) => {
       <div className="absolute inset-0 bg-brand-900/80" />
       <div className="absolute inset-0 bg-linear-to-t from-brand-900 via-brand-900/40 to-transparent" />
 
-      <div className="container relative">
+      <PageFadeIn className="container relative">
         <span className="inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold-400 backdrop-blur-sm">
           {eyebrow}
         </span>
@@ -25,7 +26,7 @@ const PageHero = ({ eyebrow, title, subtitle, image, alt }: PageHeroProps) => {
         <p className="mt-4 max-w-xl text-white/80 text-base md:text-lg leading-relaxed">
           {subtitle}
         </p>
-      </div>
+      </PageFadeIn>
     </section>
   );
 };

@@ -1,3 +1,5 @@
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
+
 const MILESTONES = [
   { year: "2001", title: "Company Founded", desc: "Started as a small residential contracting crew of 5." },
   { year: "2008", title: "First Commercial Contract", desc: "Delivered our first ground-up commercial office building." },
@@ -10,14 +12,14 @@ const Milestones = () => {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <SlideUp className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
             Our Journey
           </span>
           <h2 className="mt-3 text-3xl font-bold text-brand-900 md:text-4xl">
             Milestones Along the Way
           </h2>
-        </div>
+        </SlideUp>
 
         <div className="relative mt-14">
           <div
@@ -27,8 +29,9 @@ const Milestones = () => {
 
           <div className="space-y-10">
             {MILESTONES.map((m, i) => (
-              <div
+              <SlideUp
                 key={m.year}
+                delay={i + 1}
                 className={`relative flex flex-col gap-4 pl-12 md:pl-0 md:flex-row md:items-center md:gap-0 ${
                   i % 2 === 1 ? "md:flex-row-reverse" : ""
                 }`}
@@ -43,7 +46,7 @@ const Milestones = () => {
                   <p className="mt-1 text-sm text-brand-900/60">{m.desc}</p>
                 </div>
                 <div className="hidden md:block md:w-1/2" />
-              </div>
+              </SlideUp>
             ))}
           </div>
         </div>
