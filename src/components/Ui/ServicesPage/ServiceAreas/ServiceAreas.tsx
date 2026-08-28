@@ -1,4 +1,6 @@
 import { MapPin } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 const AREAS = [
   "Downtown Metro",
@@ -15,7 +17,7 @@ const ServiceAreas = () => {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <SlideUp className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
             Coverage
           </span>
@@ -26,11 +28,11 @@ const ServiceAreas = () => {
             Based in Building City, our crews work across the metro area and
             surrounding regions. Not sure if we cover your site? Just ask.
           </p>
-        </div>
+        </SlideUp>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {AREAS.map((area) => (
-            <div
+            <ZoomIn
               key={area}
               className="flex items-center gap-2.5 rounded-xl border border-brand-900/10 bg-brand-50/40 px-4 py-3"
             >
@@ -38,7 +40,7 @@ const ServiceAreas = () => {
               <span className="text-sm font-semibold text-brand-900">
                 {area}
               </span>
-            </div>
+            </ZoomIn>
           ))}
         </div>
       </div>

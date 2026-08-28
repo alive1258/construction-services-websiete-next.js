@@ -6,6 +6,9 @@ import { ArrowLeft, ArrowRight, CalendarDays, Clock, User } from "lucide-react";
 import type { ApiResponse } from "@/src/types/axios";
 import type { BlogItem, BlogPaginatedResponse } from "@/src/types/blogType";
 import type { BlogDetail } from "@/src/types/blogDetailsType";
+import PageFadeIn from "@/src/components/Common/Animaation/PageFadeIn";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -118,7 +121,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
         <div className="absolute inset-0 bg-gradient-to-r from-brand-900/90 via-brand-900/60 to-brand-900/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-900/50 via-transparent to-transparent" />
 
-        <div className="container relative">
+        <PageFadeIn className="container relative">
           {post.category?.category_name && (
             <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur-sm">
               {post.category.category_name}
@@ -145,7 +148,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
               </span>
             )}
           </div>
-        </div>
+        </PageFadeIn>
       </section>
 
       <section className="bg-white py-16 md:py-24">
@@ -158,7 +161,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
             Back to Blog
           </Link>
 
-          <div className="mx-auto mt-8 max-w-3xl">
+          <SlideUp className="mx-auto mt-8 max-w-3xl">
             {post.excerpt && (
               <p className="text-lg text-brand-900/80 leading-relaxed">
                 {post.excerpt}
@@ -223,44 +226,47 @@ export default async function BlogDetailPage({ params }: PageProps) {
                 </p>
               ))}
             </div>
-          </div>
+          </SlideUp>
         </div>
       </section>
 
       {relatedPosts.length > 0 && (
         <section className="bg-brand-50/50 py-16 md:py-24">
           <div className="container">
-            <h2 className="text-2xl sm:text-3xl font-bold text-brand-900">
-              More Sailing Insights
-            </h2>
+            <SlideUp>
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-900">
+                More Sailing Insights
+              </h2>
+            </SlideUp>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {relatedPosts.map((related) => (
-                <Link
-                  key={related.id}
-                  href={`/blog/${related.slug}`}
-                  className="group overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm transition hover:shadow-lg"
-                >
-                  <div className="relative aspect-16/10 overflow-hidden">
-                    {related.image && (
-                      <Image
-                        src={related.image}
-                        alt={related.title}
-                        fill
-                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    )}
-                  </div>
-                  <div className="p-6">
-                    <span className="flex items-center gap-1.5 text-xs text-brand-900/50">
-                      <CalendarDays size={13} />
-                      {formatDate(related.created_at)}
-                    </span>
-                    <h3 className="mt-2 font-bold text-brand-900 leading-snug transition-colors group-hover:text-brand-600">
-                      {related.title}
-                    </h3>
-                  </div>
-                </Link>
+                <ZoomIn key={related.id}>
+                  <Link
+                    href={`/blog/${related.slug}`}
+                    className="group block overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm transition hover:shadow-lg"
+                  >
+                    <div className="relative aspect-16/10 overflow-hidden">
+                      {related.image && (
+                        <Image
+                          src={related.image}
+                          alt={related.title}
+                          fill
+                          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      )}
+                    </div>
+                    <div className="p-6">
+                      <span className="flex items-center gap-1.5 text-xs text-brand-900/50">
+                        <CalendarDays size={13} />
+                        {formatDate(related.created_at)}
+                      </span>
+                      <h3 className="mt-2 font-bold text-brand-900 leading-snug transition-colors group-hover:text-brand-600">
+                        {related.title}
+                      </h3>
+                    </div>
+                  </Link>
+                </ZoomIn>
               ))}
             </div>
           </div>
@@ -268,7 +274,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
       )}
 
       <section className="bg-brand-900 py-16 md:py-20">
-        <div className="container flex flex-col items-center text-center gap-5">
+        <SlideUp className="container flex flex-col items-center text-center gap-5">
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
             Ready to Plan Your Own Charter?
           </h2>
@@ -282,7 +288,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
             Browse the Fleet
             <ArrowRight size={16} />
           </Link>
-        </div>
+        </SlideUp>
       </section>
     </>
   );

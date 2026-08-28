@@ -1,4 +1,6 @@
 import { Handshake, Lightbulb, ShieldCheck, Sparkles } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 const VALUES = [
   {
@@ -27,7 +29,7 @@ const CoreValues = () => {
   return (
     <section className="bg-brand-50/40 py-16 md:py-24">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <SlideUp className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
             Our Values
           </span>
@@ -38,11 +40,11 @@ const CoreValues = () => {
             The principles that guide every project we take on, from the
             smallest renovation to the largest industrial build.
           </p>
-        </div>
+        </SlideUp>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {VALUES.map(({ icon: Icon, title, desc }) => (
-            <div
+            <ZoomIn
               key={title}
               className="rounded-2xl border border-brand-900/10 bg-white p-6 text-center transition hover:-translate-y-1 hover:shadow-xl"
             >
@@ -55,7 +57,7 @@ const CoreValues = () => {
               <p className="mt-2 text-sm leading-relaxed text-brand-900/60">
                 {desc}
               </p>
-            </div>
+            </ZoomIn>
           ))}
         </div>
       </div>

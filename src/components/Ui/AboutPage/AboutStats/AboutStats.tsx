@@ -1,4 +1,5 @@
 import { Building2, Smile, Timer, Users } from "lucide-react";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 const STATS = [
   { icon: Building2, value: "850+", label: "Projects Completed" },
@@ -12,7 +13,7 @@ const AboutStats = () => {
     <section className="bg-forest-900 py-14 md:py-16">
       <div className="container grid grid-cols-2 gap-8 md:grid-cols-4">
         {STATS.map(({ icon: Icon, value, label }) => (
-          <div
+          <ZoomIn
             key={label}
             className="flex flex-col items-center gap-3 text-center"
           >
@@ -25,7 +26,7 @@ const AboutStats = () => {
               </p>
               <p className="mt-1 text-xs text-white/60 md:text-sm">{label}</p>
             </div>
-          </div>
+          </ZoomIn>
         ))}
       </div>
     </section>

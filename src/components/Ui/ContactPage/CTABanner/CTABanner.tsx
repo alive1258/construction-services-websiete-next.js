@@ -1,4 +1,5 @@
 import { Phone } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
 
 const CONTACT_PHONE = "+1 (202) 555-0198";
 
@@ -6,7 +7,7 @@ const CTABanner = () => {
   return (
     <section className="bg-brand-900 py-16">
       <div className="container">
-        <div className="flex flex-col items-center gap-6 rounded-2xl bg-gold-500 px-8 py-10 text-center sm:px-12 md:flex-row md:justify-between md:text-left">
+        <SlideUp className="flex flex-col items-center gap-6 rounded-2xl bg-gold-500 px-8 py-10 text-center sm:px-12 md:flex-row md:justify-between md:text-left">
           <div>
             <h3 className="text-2xl font-bold text-white md:text-3xl">
               Prefer to Talk? Call Us Now
@@ -22,7 +23,7 @@ const CTABanner = () => {
             <Phone size={16} />
             {CONTACT_PHONE}
           </a>
-        </div>
+        </SlideUp>
       </div>
     </section>
   );

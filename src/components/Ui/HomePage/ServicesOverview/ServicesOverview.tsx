@@ -8,6 +8,8 @@ import {
   ClipboardList,
   PaintRoller,
 } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 const SERVICES = [
   {
@@ -46,7 +48,7 @@ const ServicesOverview = () => {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <SlideUp className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
             What We Do
           </span>
@@ -57,11 +59,11 @@ const ServicesOverview = () => {
             We offer end-to-end construction solutions tailored to your
             needs, backed by decades of hands-on experience.
           </p>
-        </div>
+        </SlideUp>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map(({ icon: Icon, title, desc }) => (
-            <div
+            <ZoomIn
               key={title}
               className="group rounded-2xl border border-brand-900/10 bg-white p-6 transition hover:-translate-y-1 hover:shadow-xl"
             >
@@ -79,7 +81,7 @@ const ServicesOverview = () => {
                 Read More
                 <ArrowRight size={14} />
               </Link>
-            </div>
+            </ZoomIn>
           ))}
         </div>
       </div>

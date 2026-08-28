@@ -11,6 +11,8 @@ import {
   Landmark,
   Leaf,
 } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 const SERVICES = [
   {
@@ -64,7 +66,7 @@ const ServicesGrid = () => {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <SlideUp className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
             Full Catalogue
           </span>
@@ -75,11 +77,11 @@ const ServicesGrid = () => {
             Whatever stage your project is at, our in-house teams cover it —
             no subcontractor guesswork, no dropped handoffs.
           </p>
-        </div>
+        </SlideUp>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map(({ icon: Icon, title, desc }) => (
-            <div
+            <ZoomIn
               key={title}
               className="group rounded-2xl border border-brand-900/10 bg-white p-6 transition hover:-translate-y-1 hover:shadow-xl"
             >
@@ -97,7 +99,7 @@ const ServicesGrid = () => {
                 Get A Quote
                 <ArrowRight size={14} />
               </Link>
-            </div>
+            </ZoomIn>
           ))}
         </div>
       </div>

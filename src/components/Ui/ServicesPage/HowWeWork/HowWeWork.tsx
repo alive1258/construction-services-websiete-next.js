@@ -1,4 +1,5 @@
 import { FileSignature, HardHat, MessageSquare, Search } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
 
 const STEPS = [
   { num: "01", icon: MessageSquare, title: "Consultation", desc: "We learn your goals and constraints" },
@@ -11,18 +12,22 @@ const HowWeWork = () => {
   return (
     <section className="bg-forest-900 py-16 md:py-24">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <SlideUp className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-400">
             Our Engagement Process
           </span>
           <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
             How We Work With You
           </h2>
-        </div>
+        </SlideUp>
 
         <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {STEPS.map(({ num, icon: Icon, title, desc }, i) => (
-            <div key={num} className="relative flex flex-col items-center text-center lg:items-start lg:text-left">
+            <SlideUp
+              key={num}
+              delay={i + 1}
+              className="relative flex flex-col items-center text-center lg:items-start lg:text-left"
+            >
               {i < STEPS.length - 1 && (
                 <span
                   aria-hidden
@@ -35,7 +40,7 @@ const HowWeWork = () => {
               </span>
               <p className="mt-4 font-bold text-white">{title}</p>
               <p className="mt-1 text-sm text-white/60">{desc}</p>
-            </div>
+            </SlideUp>
           ))}
         </div>
       </div>

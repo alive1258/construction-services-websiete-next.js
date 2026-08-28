@@ -1,5 +1,8 @@
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
+import SlideLeft from "@/src/components/Common/Animaation/SlideLeft";
+import SlideRight from "@/src/components/Common/Animaation/SlideRight";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
 
 const HIGHLIGHTS = [
   "Licensed & Insured",
@@ -12,7 +15,7 @@ const AboutStory = () => {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="container grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-        <div className="relative">
+        <SlideLeft className="relative">
           <div className="relative h-72 w-full overflow-hidden rounded-2xl sm:h-96">
             <Image
               src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80"
@@ -22,9 +25,9 @@ const AboutStory = () => {
               className="object-cover"
             />
           </div>
-        </div>
+        </SlideLeft>
 
-        <div>
+        <SlideRight>
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
             About Company
           </span>
@@ -40,16 +43,18 @@ const AboutStory = () => {
           </p>
 
           <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {HIGHLIGHTS.map((item) => (
-              <li key={item} className="flex items-center gap-2.5">
-                <CheckCircle2 size={18} className="shrink-0 text-gold-600" />
-                <span className="text-sm font-medium text-brand-900">
-                  {item}
-                </span>
+            {HIGHLIGHTS.map((item, index) => (
+              <li key={item}>
+                <SlideUp delay={index + 1} className="flex items-center gap-2.5">
+                  <CheckCircle2 size={18} className="shrink-0 text-gold-600" />
+                  <span className="text-sm font-medium text-brand-900">
+                    {item}
+                  </span>
+                </SlideUp>
               </li>
             ))}
           </ul>
-        </div>
+        </SlideRight>
       </div>
     </section>
   );

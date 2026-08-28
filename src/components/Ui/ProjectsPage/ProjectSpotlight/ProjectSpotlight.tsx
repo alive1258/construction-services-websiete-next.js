@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Building2, CalendarClock, MapPin, Ruler } from "lucide-react";
+import SlideLeft from "@/src/components/Common/Animaation/SlideLeft";
+import SlideRight from "@/src/components/Common/Animaation/SlideRight";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
 
 const FACTS = [
   { icon: Building2, label: "Sector", value: "Commercial" },
@@ -13,7 +16,7 @@ const ProjectSpotlight = () => {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="container grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-        <div className="relative h-72 w-full overflow-hidden rounded-2xl sm:h-96">
+        <SlideLeft className="relative h-72 w-full overflow-hidden rounded-2xl sm:h-96">
           <Image
             src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80"
             alt="Flagship commercial construction project underway"
@@ -21,9 +24,9 @@ const ProjectSpotlight = () => {
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
-        </div>
+        </SlideLeft>
 
-        <div>
+        <SlideRight>
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
             Project Spotlight
           </span>
@@ -38,8 +41,8 @@ const ProjectSpotlight = () => {
           </p>
 
           <div className="mt-8 grid grid-cols-2 gap-6">
-            {FACTS.map(({ icon: Icon, label, value }) => (
-              <div key={label} className="flex items-start gap-3">
+            {FACTS.map(({ icon: Icon, label, value }, index) => (
+              <SlideUp key={label} delay={index + 1} className="flex items-start gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-900 text-gold-400">
                   <Icon size={18} />
                 </span>
@@ -49,7 +52,7 @@ const ProjectSpotlight = () => {
                   </p>
                   <p className="font-bold text-brand-900">{value}</p>
                 </div>
-              </div>
+              </SlideUp>
             ))}
           </div>
 
@@ -60,7 +63,7 @@ const ProjectSpotlight = () => {
             Start a Project Like This
             <ArrowRight size={16} />
           </Link>
-        </div>
+        </SlideRight>
       </div>
     </section>
   );

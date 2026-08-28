@@ -1,4 +1,6 @@
 import { Star } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 const TESTIMONIALS = [
   {
@@ -25,18 +27,18 @@ const ClientTestimonials = () => {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <SlideUp className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
             Client Feedback
           </span>
           <h2 className="mt-3 text-3xl font-bold text-brand-900 md:text-4xl">
             Trusted By The People We Build For
           </h2>
-        </div>
+        </SlideUp>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
           {TESTIMONIALS.map(({ quote, name, role }) => (
-            <div
+            <ZoomIn
               key={name}
               className="rounded-2xl border border-brand-900/10 bg-brand-50/40 p-7"
             >
@@ -52,7 +54,7 @@ const ClientTestimonials = () => {
                 <p className="font-bold text-brand-900">{name}</p>
                 <p className="text-xs text-brand-900/50">{role}</p>
               </div>
-            </div>
+            </ZoomIn>
           ))}
         </div>
       </div>

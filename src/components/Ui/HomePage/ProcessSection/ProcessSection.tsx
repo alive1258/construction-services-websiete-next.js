@@ -1,4 +1,6 @@
 import { ClipboardCheck, HardHat, PencilRuler, Truck } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 const STEPS = [
   { num: "01", icon: ClipboardCheck, title: "Consultation", desc: "We understand your needs" },
@@ -11,18 +13,18 @@ const ProcessSection = () => {
   return (
     <section className="bg-forest-900 py-16 md:py-24">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <SlideUp className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-400">
             How It Works
           </span>
           <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
             Our Work Process
           </h2>
-        </div>
+        </SlideUp>
 
         <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {STEPS.map(({ num, icon: Icon, title, desc }, i) => (
-            <div key={num} className="relative flex flex-col items-center text-center lg:items-start lg:text-left">
+            <ZoomIn key={num} className="relative flex flex-col items-center text-center lg:items-start lg:text-left">
               {i < STEPS.length - 1 && (
                 <span
                   aria-hidden
@@ -35,7 +37,7 @@ const ProcessSection = () => {
               </span>
               <p className="mt-4 font-bold text-white">{title}</p>
               <p className="mt-1 text-sm text-white/60">{desc}</p>
-            </div>
+            </ZoomIn>
           ))}
         </div>
       </div>

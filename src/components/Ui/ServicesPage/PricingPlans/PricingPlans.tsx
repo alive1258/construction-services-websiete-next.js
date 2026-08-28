@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
+import SlideUp from "@/src/components/Common/Animaation/SlideUp";
+import ZoomIn from "@/src/components/Common/Animaation/ZoomIn";
 
 const PLANS = [
   {
@@ -39,7 +41,7 @@ const PricingPlans = () => {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <SlideUp className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
             Our Pricing
           </span>
@@ -49,11 +51,11 @@ const PricingPlans = () => {
           <p className="mt-4 text-brand-900/60">
             Choose a plan that fits your project&apos;s needs and budget.
           </p>
-        </div>
+        </SlideUp>
 
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center">
           {PLANS.map((plan) => (
-            <div
+            <ZoomIn
               key={plan.name}
               className={`relative rounded-2xl p-8 ${
                 plan.highlighted
@@ -104,7 +106,7 @@ const PricingPlans = () => {
               >
                 Choose Plan
               </Link>
-            </div>
+            </ZoomIn>
           ))}
         </div>
       </div>
